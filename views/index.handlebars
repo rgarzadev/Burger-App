@@ -4,9 +4,15 @@
 
 <ul>
   {{#each burgers}}
-    {{#unless devoured}}
-     
-    {{/unless}}
+  {{#unless devoured}}
+  <li>
+    {{burger_name}}
+    <button class="change-status" data-name="{{burger_name}}"data-id="{{id}}" data-newDevoured="{{devoured}}">
+      Devour
+    </button>
+  </li>
+
+  {{/unless}}
   {{/each}}
 </ul>
 
@@ -14,9 +20,11 @@
 
 <ul>
   {{#each burgers}}
-    {{#if devoured}}
-    
-    {{/if}}
+  {{#if devoured}}
+  <li>
+    {{burger_name}}
+  </li>
+  {{/if}}
   {{/each}}
 </ul>
 
