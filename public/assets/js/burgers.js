@@ -1,5 +1,6 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
+  //changing devoured state of burger
     $(".change-status").on("click", function(event) {
       var id = $(this).data("id");
       var name = $(this).data("name");
@@ -22,6 +23,7 @@ $(function() {
       );
     });
   
+    //creating new burger
     $(".create-form").on("submit", function(event) {
       // Make sure to preventDefault on a submit event.
       event.preventDefault();
@@ -30,7 +32,8 @@ $(function() {
         burger_name: $("#burger").val().trim(),
         devoured: $("[name=devoured]:checked").val().trim()
       };
-  
+      
+      //sends request to create new burger
       // Send the POST request.
       $.ajax("/api/burgers", {
         type: "POST",
@@ -44,6 +47,7 @@ $(function() {
       );
     });
     
+    //deletes burger from devoured list
     $(".delete-burger").on("click", function(event) {
       var id = $(this).data("id");
   

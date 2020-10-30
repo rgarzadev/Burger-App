@@ -1,5 +1,7 @@
+//establishes db connection
 var connection = require("./connection.js");
 
+//helper function that helps us build a mySQL query
 function printQuestionMarks(num) {
     var arr = [];
   
@@ -8,31 +10,30 @@ function printQuestionMarks(num) {
     }
   
     return arr.toString();
-  }
+}
 
-  function objToSql(ob) {
-    var arr = [];
-  
-    // loop through the keys and push the key/value as a string int arr
-    for (var key in ob) {
-      var value = ob[key];
-      // check to skip hidden properties
-      if (Object.hasOwnProperty.call(ob, key)) {
-        // if string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
-        // OLD --> if (typeof value === "string" && value.indexOf(" ") >= 0) {
-        if (typeof value === "string" && value != "true" && value != "false") {
-          value = "'" + value + "'";
-        }
-        // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
-        // e.g. {sleepy: true} => ["sleepy=true"]
-        arr.push(key + "=" + value);
+//helper function that helps us build a mySQL query
+function objToSql(ob) {
+  var arr = [];
+
+  // loop through the keys and push the key/value as a string int arr
+  for (var key in ob) {
+    var value = ob[key];
+    // check to skip hidden properties
+    if (Object.hasOwnProperty.call(ob, key)) {
+      // add quotations to all strings except for true and false values  
+      if (typeof value === "string" && value != "true" && value != "false") {
+        value = "'" + value + "'";
       }
+      arr.push(key + "=" + value);
     }
-  
-    // translate array of strings to a single comma-separated string
-    return arr.toString();
   }
 
+  // translate array of strings to a single comma-separated string
+  return arr.toString();
+}
+
+//generic object relational mappings
 var orm = {
     selectAll: function (table, cb) {
         var queryString = "SELECT * FROM " + table + ";";
