@@ -30,6 +30,7 @@
       {{#if devoured}}
       <li>
         {{burger_name}}
+        <button class="delete-burger" data-id="{{this.id}}">Delete</button>
       </li>
       {{/if}}
       {{/each}}
@@ -40,7 +41,7 @@
 
 
   <div id="add-burger">
-    <h2>Add a Burger</h2>
+    <h2>Add a Burger!</h2>
     <form class="create-form">
 
       <div class="form-group"> 
