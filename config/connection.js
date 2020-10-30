@@ -1,7 +1,11 @@
 const util = require("util");
 const mysql = require("mysql");
+let connection;
 
-const connection = mysql.createConnection({
+if(process.env.JAWSDB_URL){
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+connection = mysql.createConnection({
   host: "localhost",
   // Your username
   user: "root",
@@ -9,6 +13,7 @@ const connection = mysql.createConnection({
   password: "root",
   database: "burgers_db"
 });
+}
 
 //adding connection error handling
 connection.connect(function(err) {
