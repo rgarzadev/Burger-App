@@ -1,0 +1,79 @@
+body {
+    background-color: burlywood;
+}
+
+#main-container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#title {
+    color: chocolate;
+}
+
+#flex-container {
+    display: flex;
+    justify-content: center;
+}
+
+#not-devoured {
+    padding: 3%;
+}
+
+#devoured {
+    padding: 3%;
+}
+
+#add-burger {}
+
+ul {
+    list-style-type: none;
+}
+
+.change-status {
+    margin-top: 3%;
+    margin-left: 3%;
+    display: inline-block;
+    padding: 7px 12px;
+    font-size: 10px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: chocolate;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+.change-status:hover {background-color: coral}
+.change-status:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.button {
+    margin-top: 3%;
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: chocolate;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: coral}
+
+.button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
